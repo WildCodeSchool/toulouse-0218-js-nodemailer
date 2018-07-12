@@ -25,22 +25,25 @@ class ContactForm extends React.Component {
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data)
+      this.setState({
+        subject: '', content: ''
+      })
     })
   }
 
   render () {
+    const { subject, content } = this.state
     return (
       <form className="ContactForm" onSubmit={this.handleSubmit}>
 
         <div className="ContactForm-input">
           <label htmlFor="subject">Email subject</label>
-          <input id="subject" name="subject" onChange={this.handleChange} />
+          <input id="subject" name="subject" value={subject} onChange={this.handleChange} />
         </div>
 
         <div className="ContactForm-input">
           <label htmlFor="content">Email content</label>
-          <textarea id="content" name="content" rows="8" onChange={this.handleChange}>
+          <textarea id="content" name="content" rows="8" value={content} onChange={this.handleChange}>
           </textarea>
         </div>
 
