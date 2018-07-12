@@ -1,4 +1,5 @@
 import React from 'react'
+import './ContactForm.css'
 
 class ContactForm extends React.Component {
   state = {
@@ -30,14 +31,18 @@ class ContactForm extends React.Component {
 
   render () {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="ContactForm" onSubmit={this.handleSubmit}>
 
-        <label htmlFor="subject">Email subject</label>
-        <input id="subject" name="subject" onChange={this.handleChange} />
+        <div className="ContactForm-input">
+          <label htmlFor="subject">Email subject</label>
+          <input id="subject" name="subject" onChange={this.handleChange} />
+        </div>
 
-        <label htmlFor="content">Email content</label>
-        <textarea id="content" name="content" onChange={this.handleChange}>
-        </textarea>
+        <div className="ContactForm-input">
+          <label htmlFor="content">Email content</label>
+          <textarea id="content" name="content" rows="8" onChange={this.handleChange}>
+          </textarea>
+        </div>
 
         <button type="submit">Send</button>
 
